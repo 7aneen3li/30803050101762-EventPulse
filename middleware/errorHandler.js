@@ -20,7 +20,7 @@ function errorHandler(err, req, res, next) {
     res.status(statusCode).json({
         status: statusCode >= 500 ? 'error' : 'fail',
         message,
-        ...arguments(process.env.NODE_ENV === 'development' && { stack: err.stack }),
+        ...(process.env.NODE_ENV === 'development' && { stack: err.stack }),
     });
 }
 
