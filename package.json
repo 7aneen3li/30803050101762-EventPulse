@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/7aneen3li/30803050101762-EventPulse.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Haneen Ali",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
@@ -27,5 +29,8 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.9.2",
     "morgan": "^1.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }
