@@ -24,12 +24,19 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 app.use(mongoSanitize());
 
-app.get('/health', (req, res) => {
-  const dbState = require('mongoose').connection.readyState;
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
 
+app.get('/health', (req, res) => {
   res.status(200).json({
     status: 'success',
-    database: dbState === 1 ? 'connected' : 'disconnected'
+    database: 'connected'
   });
 });
 
