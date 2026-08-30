@@ -33,7 +33,7 @@ const seed = async () => {
             },
             {
                 name: 'Tech',
-                descrition: 'Conferences, hackathons, and meetups'
+                description: 'Conferences, hackathons, and meetups'
             },
             {
                 name: 'Sports',
@@ -59,7 +59,7 @@ const seed = async () => {
                 date: new Date('2026-09-10'),
                 city: 'Giza',
                 venue: 'Giza Convention Center',
-                capacity: 300,
+                capacity: 1,
                 organizer: admin._id
             },
             {

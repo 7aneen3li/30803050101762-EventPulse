@@ -24,6 +24,22 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 app.use(mongoSanitize());
 
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    database: 'connected'
+  });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/registrations', registrationRoutes);
