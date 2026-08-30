@@ -59,7 +59,7 @@ const seed = async () => {
                 date: new Date('2026-09-10'),
                 city: 'Giza',
                 venue: 'Giza Convention Center',
-                capacity: 300,
+                capacity: 1,
                 organizer: admin._id
             },
             {
