@@ -33,7 +33,7 @@ const seed = async () => {
             },
             {
                 name: 'Tech',
-                descrition: 'Conferences, hackathons, and meetups'
+                description: 'Conferences, hackathons, and meetups'
             },
             {
                 name: 'Sports',
