@@ -24,6 +24,15 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 app.use(mongoSanitize());
 
+app.get('/health', (req, res) => {
+  const dbState = require('mongoose').connection.readyState;
+
+  res.status(200).json({
+    status: 'success',
+    database: dbState === 1 ? 'connected' : 'disconnected'
+  });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/registrations', registrationRoutes);
